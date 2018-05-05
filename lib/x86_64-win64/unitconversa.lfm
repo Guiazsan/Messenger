@@ -1,0 +1,174 @@
+object Conversa: TConversa
+  Left = 0
+  Height = 424
+  Top = 0
+  Width = 722
+  ActiveControl = Texto
+  Caption = 'Conversa'
+  ClientHeight = 424
+  ClientWidth = 722
+  Color = 14408516
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCreate = FormCreate
+  Visible = False
+  object Texto: TMemo
+    Left = 16
+    Height = 82
+    Hint = 'Digite Seu Texto Aqui'
+    Top = 320
+    Width = 616
+    OnChange = TextoChange
+    TabOrder = 0
+  end
+  object Panel1: TPanel
+    Left = 632
+    Height = 82
+    Top = 320
+    Width = 82
+    BevelOuter = bvNone
+    Caption = '>'
+    Color = 12615680
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -48
+    Font.Name = 'Tw Cen MT'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 1
+    OnClick = Panel1Click
+  end
+  object DBGrid1: TDBGrid
+    Left = 16
+    Height = 264
+    Top = 56
+    Width = 616
+    BorderStyle = bsNone
+    Color = 15924733
+    Columns = <    
+      item
+        Title.Caption = 'autor'
+        Width = 20
+        FieldName = 'autor'
+      end    
+      item
+        Title.Caption = 'texto'
+        FieldName = 'texto'
+      end>
+    DataSource = DS_Mensagens
+    FixedCols = 0
+    Options = [dgRowLines, dgTabs, dgAlwaysShowSelection, dgConfirmDelete, dgCancelOnExit]
+    Scrollbars = ssAutoVertical
+    TabOrder = 2
+  end
+  object Label1: TLabel
+    Left = 24
+    Height = 15
+    Top = 23
+    Width = 34
+    Caption = 'Amigo'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Tw Cen MT'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object Label2: TLabel
+    Left = 528
+    Height = 15
+    Top = 408
+    Width = 133
+    Caption = '280 Caracteres Restantes'
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Tw Cen MT'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+  end
+  object DSConversa: TDataSource
+    DataSet = Q_Conversa
+    left = 552
+    top = 8
+  end
+  object Q_Conversa: TSQLQuery
+    FieldDefs = <>
+    Database = Form1.DataMaster
+    Transaction = Form1.SQLTransaction1
+    Params = <>
+    left = 448
+    top = 8
+  end
+  object qAux: TSQLQuery
+    FieldDefs = <>
+    Database = Form1.DataMaster
+    Transaction = Form1.SQLTransaction1
+    Params = <>
+    left = 344
+    top = 8
+  end
+  object qTexto: TSQLQuery
+    FieldDefs = <>
+    Database = Form1.DataMaster
+    Transaction = Form1.SQLTransaction1
+    Params = <>
+    left = 288
+    top = 8
+  end
+  object DS_Mensagens: TDataSource
+    DataSet = Q_Mensagens
+    left = 192
+    top = 8
+  end
+  object Q_Mensagens: TSQLQuery
+    FieldDefs = <    
+      item
+        Name = 'autor'
+        DataType = ftString
+        Precision = -1
+        Size = 60
+      end    
+      item
+        Name = 'texto'
+        DataType = ftString
+        Precision = -1
+        Size = 280
+      end>
+    Database = Form1.DataMaster
+    Transaction = Form1.SQLTransaction1
+    SQL.Strings = (
+      'select autor, texto from texto_tab'
+    )
+    Params = <>
+    left = 112
+    top = 8
+    object Q_Mensagensautor: TStringField
+      FieldKind = fkData
+      FieldName = 'autor'
+      Index = 0
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 60
+    end
+    object Q_Mensagenstexto: TStringField
+      FieldKind = fkData
+      FieldName = 'texto'
+      Index = 1
+      LookupCache = False
+      ProviderFlags = [pfInUpdate, pfInWhere]
+      ReadOnly = False
+      Required = False
+      Size = 280
+    end
+  end
+end

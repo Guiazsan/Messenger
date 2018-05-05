@@ -1,0 +1,95 @@
+object Add: TAdd
+  Left = 0
+  Height = 140
+  Top = 0
+  Width = 376
+  BorderStyle = bsDialog
+  Caption = 'Adicionar'
+  ClientHeight = 140
+  ClientWidth = 376
+  Color = clWindow
+  OnCreate = FormCreate
+  Position = poDesktopCenter
+  Visible = False
+  object PnAdd: TPanel
+    Left = 264
+    Height = 34
+    Top = 96
+    Width = 104
+    BevelOuter = bvNone
+    Caption = 'Adicionar'
+    Color = 12615680
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Tw Cen MT'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 0
+    OnClick = PnAddClick
+  end
+  object PnCancelar: TPanel
+    Left = 144
+    Height = 34
+    Top = 96
+    Width = 104
+    BevelOuter = bvNone
+    Caption = 'Cancelar'
+    Color = 12615680
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Tw Cen MT'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 1
+    OnClick = PnCancelarClick
+  end
+  object EditNome: TEdit
+    Left = 32
+    Height = 23
+    Top = 24
+    Width = 312
+    TabOrder = 2
+  end
+  object EditNome1: TEdit
+    Left = 32
+    Height = 23
+    Top = 64
+    Width = 312
+    TabOrder = 3
+  end
+  object Label1: TLabel
+    Left = 32
+    Height = 15
+    Top = 8
+    Width = 92
+    Caption = 'Nome de Usuário'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Left = 32
+    Height = 15
+    Top = 48
+    Width = 41
+    Caption = 'Apelido'
+    ParentColor = False
+  end
+  object DSAdd: TDataSource
+    DataSet = Q_Add
+    left = 72
+    top = 104
+  end
+  object Q_Add: TSQLQuery
+    FieldDefs = <>
+    Database = Form1.DataMaster
+    Transaction = Form1.SQLTransaction1
+    Params = <>
+    left = 16
+    top = 104
+  end
+end

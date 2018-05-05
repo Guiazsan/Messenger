@@ -1,0 +1,28 @@
+object Form1: TForm1
+  Left = 599
+  Height = 240
+  Top = 275
+  Width = 320
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 320
+  Visible = False
+  object DataMaster: TPQConnection
+    Connected = True
+    LoginPrompt = False
+    DatabaseName = 'Messenger'
+    KeepConnection = False
+    Password = 'postgres'
+    Transaction = SQLTransaction1
+    UserName = 'postgres'
+    HostName = 'localhost'
+    left = 32
+    top = 16
+  end
+  object SQLTransaction1: TSQLTransaction
+    Active = False
+    Database = DataMaster
+    left = 112
+    top = 16
+  end
+end

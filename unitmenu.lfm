@@ -1,0 +1,195 @@
+object Menu1: TMenu1
+  Left = 495
+  Height = 660
+  Top = 17
+  Width = 320
+  ActiveControl = DBGrid1
+  BorderStyle = bsNone
+  Caption = 'Menu1'
+  ClientHeight = 660
+  ClientWidth = 320
+  Color = 14408516
+  DefaultMonitor = dmMainForm
+  OnActivate = FormActivate
+  Visible = False
+  object PnTop: TPanel
+    Left = 16
+    Height = 24
+    Top = 0
+    Width = 304
+    Alignment = taLeftJustify
+    BorderSpacing.Left = 100
+    BevelOuter = bvNone
+    Caption = 'Messenger'
+    ClientHeight = 24
+    ClientWidth = 304
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -13
+    Font.Name = 'Tw Cen MT'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 0
+    object PnClose: TPanel
+      Left = 264
+      Height = 24
+      Top = 0
+      Width = 42
+      BevelOuter = bvNone
+      Caption = 'X'
+      Color = 14408516
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tw Cen MT'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+      TabOrder = 0
+      OnClick = PnCloseClick
+      OnMouseEnter = PnCloseMouseEnter
+      OnMouseLeave = PnCloseMouseLeave
+    end
+    object PnMinimize: TPanel
+      Left = 224
+      Height = 24
+      Top = 0
+      Width = 42
+      BevelOuter = bvNone
+      Caption = '_'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -13
+      Font.Name = 'Tw Cen MT'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      Font.Style = [fsBold]
+      ParentFont = False
+      TabOrder = 1
+      OnClick = PnMinimizeClick
+      OnMouseEnter = PnMinimizeMouseEnter
+      OnMouseLeave = PnMinimizeMouseLeave
+    end
+  end
+  object DBGrid1: TDBGrid
+    Left = 16
+    Height = 473
+    Top = 111
+    Width = 296
+    BorderStyle = bsNone
+    Color = clWindow
+    Columns = <>
+    DataSource = DSMenu
+    FixedCols = 0
+    Options = [dgEditing, dgConfirmDelete, dgCancelOnExit]
+    ReadOnly = True
+    Scrollbars = ssAutoVertical
+    TabAdvance = aaNone
+    TabOrder = 1
+    TitleStyle = tsNative
+    OnCellClick = DBGrid1CellClick
+  end
+  object PnAdd: TPanel
+    Left = 264
+    Height = 56
+    Top = 24
+    Width = 56
+    BevelOuter = bvNone
+    Caption = '+'
+    ClientHeight = 56
+    ClientWidth = 56
+    Color = 14408516
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -37
+    Font.Name = 'Tw Cen MT'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 2
+    OnClick = PnAddClick
+    OnMouseEnter = PnAddMouseEnter
+    OnMouseLeave = PnAddMouseLeave
+    object Notificacao: TShape
+      Left = 32
+      Height = 20
+      Top = 32
+      Width = 20
+      Brush.Color = 5526780
+      Pen.Color = clNone
+      Pen.Style = psClear
+      Shape = stCircle
+    end
+    object Label1: TLabel
+      Left = 39
+      Height = 14
+      Top = 34
+      Width = 5
+      Caption = '1'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clWhite
+      Font.Height = -11
+      Font.Name = 'Tw Cen MT'
+      Font.Pitch = fpVariable
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object PnMenu: TPanel
+    Left = 0
+    Height = 56
+    Top = 24
+    Width = 56
+    BevelOuter = bvNone
+    Caption = '...'
+    Color = 14408516
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clWhite
+    Font.Height = -37
+    Font.Name = 'Tw Cen MT'
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    ParentColor = False
+    ParentFont = False
+    TabOrder = 3
+    OnClick = PnMenuClick
+    OnMouseEnter = PnMenuMouseEnter
+    OnMouseLeave = PnMenuMouseLeave
+  end
+  object Q_Menu: TSQLQuery
+    FieldDefs = <>
+    Database = Form1.DataMaster
+    Transaction = Form1.SQLTransaction1
+    SQL.Strings = (
+      'select'
+      '*'
+      'from'
+      'amigo'
+    )
+    Params = <>
+    left = 112
+    top = 40
+  end
+  object DSMenu: TDataSource
+    DataSet = Q_Menu
+    left = 168
+    top = 40
+  end
+  object PopupMenu1: TPopupMenu
+    left = 224
+    top = 40
+    object Logoff: TMenuItem
+      Caption = 'Logoff'
+      OnClick = LogoffClick
+    end
+    object Sair: TMenuItem
+      Caption = 'Sair'
+      OnClick = SairClick
+    end
+  end
+end
